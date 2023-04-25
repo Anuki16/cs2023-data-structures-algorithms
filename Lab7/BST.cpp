@@ -14,6 +14,22 @@ void traverseInOrder(struct node *root) {
   traverseInOrder(root->right);
 }
 
+// Preorder traversal
+void traversePreOrder(struct node *root) {
+  if (!root) return;  // Nothing to print
+  cout << root->key << " ";
+  traversePreOrder(root->left);
+  traversePreOrder(root->right);
+}
+
+// Postorder traversal
+void traversePostOrder(struct node *root) {
+  if (!root) return;  // Nothing to print
+  traversePostOrder(root->left);
+  traversePostOrder(root->right);
+  cout << root->key << " ";
+}
+
 // Insert a node
 struct node *insertNode(struct node *root, int key) {
   if (!root) {  // create new node and make it root
@@ -109,4 +125,9 @@ int main() {
   }
   
   traverseInOrder(root);
+  cout << endl;
+  traversePreOrder(root);
+  cout << endl;
+  traversePostOrder(root);
+  cout << endl;
 }
