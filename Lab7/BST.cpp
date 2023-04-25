@@ -8,7 +8,7 @@ struct node {
 
 // Inorder traversal
 void traverseInOrder(struct node *root) {
-  if (!root) return;
+  if (!root) return;  // Nothing to print
   traverseInOrder(root->left);
   cout << root->key << " ";
   traverseInOrder(root->right);
@@ -16,17 +16,17 @@ void traverseInOrder(struct node *root) {
 
 // Insert a node
 struct node *insertNode(struct node *root, int key) {
-  if (!root) {
+  if (!root) {  // create new node and make it root
       struct node *new_node = new struct node;
       new_node->key = key;
       new_node->left = NULL;
       new_node->right = NULL;
       return new_node;
   }
-  if (root->key > key) {
-    if (root->left) {
+  if (root->key > key) {  
+    if (root->left) { //Insert into left subtree
       insertNode(root->left, key);
-    } else {
+    } else {  // Create new node and make it left
       struct node *new_node = new struct node;
       new_node->key = key;
       new_node->left = NULL;
@@ -34,9 +34,9 @@ struct node *insertNode(struct node *root, int key) {
       root->left = new_node;
     }
   } else if (root->key < key){
-    if (root->right) {
+    if (root->right) {  //Insert into right subtree
       insertNode(root->right, key);
-    } else {
+    } else {      // Create new node and make it right
       struct node *new_node = new struct node;
       new_node->key = key;
       new_node->left = NULL;
@@ -50,13 +50,13 @@ struct node *insertNode(struct node *root, int key) {
 // Deleting a node
 struct node *deleteNode(struct node *root, int key) {
   if (!root) return root;
-  if (root->key > key) {
+  if (root->key > key) {  //should be in left subtree
     root->left = deleteNode(root->left, key);
     return root;
-  } else if (root->key < key) {
+  } else if (root->key < key) {   // should be in right subtree
     root->right = deleteNode(root->right, key);
     return root;
-  } else {  // ==key
+  } else {  // This is what we should delete
     if (!root->left) { //replace root by root.right
       struct node *new_root = root->right;
       delete root;
