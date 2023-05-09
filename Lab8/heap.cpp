@@ -55,10 +55,10 @@ void heapSort(int arr[], int n)
 // main program
 int main()
 {
-   int n = 12;
-   int heap_arr[n];
+   int n = 10;
+   int heap_arr[n];// = {4,17,3,12,9,6};
    for (int i = 0; i < n; i++) {
-      heap_arr[i] = rand()%41;
+      heap_arr[i] = rand()%31;
    }
 
    cout<<"Input array"<<endl;
