@@ -43,12 +43,14 @@ void shortest_paths(vector<vector<int>> graph, int start) {
         }
     }
     /*
+    // Question 3
     cout << "Source node = " << start << endl;
     for (int i = 0; i < n; i++) {
         if (i == start) continue;
         cout << start << " -> " << i << ": " << dists[i] << endl;
     }*/
 
+    // Question 4
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += dists[i];
